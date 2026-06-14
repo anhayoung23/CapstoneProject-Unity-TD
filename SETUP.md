@@ -24,21 +24,44 @@
 
 ## 1. 사전 준비
 
+### OS 확인
+
+운영체제에 따라 텍스처 공유 패키지가 다릅니다. 먼저 사용 OS를 확인하세요.
+
+| OS | 프로토콜 | Unity 패키지 | Unity 컴포넌트 |
+|----|---------|-------------|---------------|
+| **Mac OS** | Syphon | KlakSyphon | SyphonServer |
+| **Windows** | Spout | KlakSpout | SpoutSender |
+
+TouchDesigner의 `SyphonSpoutIn` 노드는 두 OS 모두 동일하게 사용합니다.
+
+---
+
 ### 필수 설치
 
 | 소프트웨어 | 버전 | 용도 |
 |-----------|------|------|
 | Unity | 2022.3 LTS | 메인 개발 |
 | TouchDesigner | 최신 버전 | 프로젝션 맵핑 |
-| KlakSyphon | Package Manager에서 설치 | Unity → Syphon 송출 |
+| KlakSyphon (Mac) 또는 KlakSpout (Windows) | Package Manager에서 설치 | Unity → TD 텍스처 송출 |
 
-### KlakSyphon 설치
+### Mac — KlakSyphon 설치
 
 1. Unity → `Window → Package Manager`
 2. 왼쪽 상단 `+` → `Add package from git URL`
 3. 아래 URL 입력:
    ```
    https://github.com/keijiro/KlakSyphon.git
+   ```
+4. Add 클릭 → 설치 완료
+
+### Windows — KlakSpout 설치
+
+1. Unity → `Window → Package Manager`
+2. 왼쪽 상단 `+` → `Add package from git URL`
+3. 아래 URL 입력:
+   ```
+   https://github.com/keijiro/KlakSpout.git
    ```
 4. Add 클릭 → 설치 완료
 
@@ -229,9 +252,11 @@ RT 선택 후 Inspector에서 Width/Height를 위 값으로 설정합니다.
 
 ---
 
-## 8. Syphon Server 설정
+## 8. Syphon / Spout Server 설정
 
-카메라 6대 각각에 SyphonServer 컴포넌트를 추가합니다.
+카메라 6대 각각에 텍스처 공유 컴포넌트를 추가합니다.
+
+### Mac — SyphonServer
 
 **Camera_Story_1F 기준 (나머지도 동일)**
 
@@ -241,8 +266,20 @@ RT 선택 후 Inspector에서 Width/Height를 위 값으로 설정합니다.
 4. Source Texture → `RT_Story_1F` 연결
 5. Server Name → `Story_1F` 입력
 
-| 카메라 | Source Texture | Server Name |
-|--------|---------------|-------------|
+### Windows — SpoutSender
+
+**Camera_Story_1F 기준 (나머지도 동일)**
+
+1. Camera_Story_1F 선택
+2. Inspector → `Add Component → Spout Sender`
+3. Source → `Texture`
+4. Source Texture → `RT_Story_1F` 연결
+5. Sender Name → `Story_1F` 입력
+
+### 카메라별 연결 목록 (Mac/Windows 공통)
+
+| 카메라 | Source Texture | Server/Sender Name |
+|--------|---------------|--------------------|
 | Camera_Story_1F | RT_Story_1F | Story_1F |
 | Camera_Trans_1F | RT_Trans_1F | Trans_1F |
 | Camera_Flash_1F | RT_Flash_1F | Flash_1F |
