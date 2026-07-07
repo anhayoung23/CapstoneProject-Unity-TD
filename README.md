@@ -4,6 +4,8 @@
 > 현재 버전: **Mac OS (Syphon)** — Windows 전환 방법은 [OS별 차이점](#os별-차이점) 참고
 
 ---
+![전시장 전경](images/exhibition-space_overview.jpg)
+*계단형 대각선 배치 패널과 레버 인터랙션 장치가 설치된 전시 공간 전경*
 
 ## 목차
 
