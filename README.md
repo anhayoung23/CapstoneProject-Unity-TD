@@ -1,4 +1,4 @@
-# CDP2 Layer Playground — 전시 시스템 문서
+# CDP2 Layer Playgroumd — 전시 시스템 문서
 
 > Unity + Syphon/Spout + TouchDesigner 기반 프로젝션 맵핑 인터랙티브 전시
 > 현재 버전: **Mac OS (Syphon)** — Windows 전환 방법은 [OS별 차이점](#os별-차이점) 참고
